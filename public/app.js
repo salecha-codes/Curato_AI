@@ -1,4 +1,9 @@
+import {inject} from './vercel-analytics.js';
 import {config} from './config.js';
+
+// Initialize Vercel Web Analytics
+inject();
+
 const $=s=>document.querySelector(s),escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const count=n=>Number(n).toLocaleString('en-IN'),names={svd:'SVD model',collaborative:'User-based collaborative filtering',popularity:'Popularity-based ranking'};
 const modelIcons={popularity:'<path d="M4 20V12h4v8M10 20V4h4v16M16 20V8h4v12M3 20h18"/>',collaborative:'<circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3zM16 5a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 5v2h-3"/>',svd:'<path d="m3 7 9-5 9 5-9 5zM3 12l9 5 9-5M3 17l9 5 9-5"/>'};
