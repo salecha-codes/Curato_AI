@@ -1,0 +1,12 @@
+{
+  "name": "curato-ai",
+  "version": "1.0.0",
+  "description": "E-commerce Customer Recommendation System",
+  "private": true,
+  "scripts": {
+    "postinstall": "echo 'Dependencies installed successfully'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.3.1"
+  }
+}
