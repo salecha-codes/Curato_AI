@@ -24,8 +24,8 @@ Node dependencies are only for optional Vercel analytics; no frontend build is r
 ## Try the shopping model
 
 1. Select a customer, or **New customer (no history)**.
-2. Browse products in **Cart & wishlist**. Add headphones, cameras, or other products to either list.
-3. Choose **Cart & wishlist**, then **Generate recommendations**.
+2. Open **Cart & wishlist** from the side navigation. Browse products and add headphones, cameras, or other items to either list.
+3. Click **Find similar products** to generate recommendations, or return to Recommendations and choose the Cart & wishlist model.
 4. Open **Why recommended?** to see the saved item responsible for a suggestion.
 5. Remove or change saved products and generate again to see the results change.
 
