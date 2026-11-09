@@ -57,12 +57,16 @@ def read_catalog(source, product_ids):
     catalog = catalog.rename(columns=ALIASES)
     if 'product_id' not in catalog:
         raise ValueError('Product metadata CSV needs a product_id column.')
-    catalog['product_id'] = catalog.product_id.astype(str).str.strip()
+    catalog['product_id'] = catalog.product_id.fillna('').str.strip()
+    if catalog.product_id.eq('').any() or catalog.product_id.str.len().gt(160).any():
+        raise ValueError('Product metadata IDs must be 1–160 characters.')
+    if len(set(product_ids) | set(catalog.product_id)) > 10_000:
+        raise ValueError('Local demo limit: 10,000 products. Please sample your catalog.')
     if catalog.product_id.duplicated().any():
         raise ValueError('Product metadata must contain one row per product_id.')
     records = catalog.set_index('product_id').to_dict('index')
     result = []
-    for pid in sorted(set(product_ids)):
+    for pid in sorted(set(product_ids) | set(records)):
         row = records.get(pid, {})
         def value(key, fallback):
             v = row.get(key)

@@ -2,5 +2,11 @@
   "name": "Electronics discovery sample",
   "source": "Bundled synthetic teaching dataset (seed 42). Not Amazon customer data.",
   "synthetic": true,
-  "generation_seed": 42
+  "generation_seed": 42,
+  "customers": 20,
+  "rating_count_range": [
+    10,
+    29
+  ],
+  "sample_activity": "Synthetic cart and wishlist examples; editable in the app."
 }
